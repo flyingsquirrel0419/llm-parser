@@ -1,14 +1,14 @@
 {
-  "name": "llm-parser",
+  "name": "schema-llm",
   "version": "0.1.0",
   "description": "Type-safe LLM response parser with Zod schema validation.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flyingsquirrel0419/llm-parser.git"
+    "url": "git+https://github.com/flyingsquirrel0419/schema-llm.git"
   },
-  "homepage": "https://github.com/flyingsquirrel0419/llm-parser#readme",
+  "homepage": "https://github.com/flyingsquirrel0419/schema-llm#readme",
   "bugs": {
-    "url": "https://github.com/flyingsquirrel0419/llm-parser/issues"
+    "url": "https://github.com/flyingsquirrel0419/schema-llm/issues"
   },
   "keywords": [
     "llm",

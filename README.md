@@ -1,9 +1,9 @@
-# llm-parser
+# schema-llm
 
-[![npm version](https://img.shields.io/npm/v/llm-parser.svg?style=flat-square)](https://www.npmjs.com/package/llm-parser)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/llm-parser?style=flat-square&label=gzip)](https://bundlephobia.com/package/llm-parser)
+[![npm version](https://img.shields.io/npm/v/schema-llm.svg?style=flat-square)](https://www.npmjs.com/package/schema-llm)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/schema-llm?style=flat-square&label=gzip)](https://bundlephobia.com/package/schema-llm)
 ![test coverage](https://img.shields.io/badge/coverage-95%25-brightgreen?style=flat-square)
-[![license](https://img.shields.io/npm/l/llm-parser.svg?style=flat-square)](LICENSE)
+[![license](https://img.shields.io/npm/l/schema-llm.svg?style=flat-square)](LICENSE)
 [![zod peer](https://img.shields.io/badge/zod-%3E%3D3.25.0-blue?style=flat-square)](https://zod.dev)
 
 **Type-safe LLM response parser with Zod schema validation.**  
@@ -25,8 +25,8 @@ const parsed = JSON.parse(match?.[1] ?? '{}') // any type, no validation
 ## The solution
 
 ```typescript
-// ✅ With llm-parser
-import { parseAI } from 'llm-parser'
+// ✅ With schema-llm
+import { parseAI } from 'schema-llm'
 import { z } from 'zod'
 
 const schema = z.object({
@@ -55,7 +55,7 @@ const result = await parseAI(response, schema)
 ## Installation
 
 ```bash
-npm install llm-parser zod
+npm install schema-llm zod
 ```
 
 Requires `zod >= 3.25.0` (v4 also supported).
@@ -68,7 +68,7 @@ Requires `zod >= 3.25.0` (v4 also supported).
 
 ```typescript
 import OpenAI from 'openai'
-import { parseAI } from 'llm-parser'
+import { parseAI } from 'schema-llm'
 import { z } from 'zod'
 
 const client = new OpenAI()
@@ -93,7 +93,7 @@ console.log(summary.points)  // string[]
 
 ```typescript
 import Anthropic from '@anthropic-ai/sdk'
-import { parseAI } from 'llm-parser'
+import { parseAI } from 'schema-llm'
 import { z } from 'zod'
 
 const client = new Anthropic()
@@ -114,7 +114,7 @@ const result = await parseAI(response, EntitySchema)
 
 ```typescript
 import { GoogleGenerativeAI } from '@google/generative-ai'
-import { parseAI } from 'llm-parser'
+import { parseAI } from 'schema-llm'
 import { z } from 'zod'
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
@@ -150,7 +150,7 @@ const result = await parseAI(raw, schema)
 `streamAI` assembles chunks as they arrive and yields partial results in real time.
 
 ```typescript
-import { streamAI } from 'llm-parser'
+import { streamAI } from 'schema-llm'
 import { z } from 'zod'
 
 const TaskListSchema = z.object({
@@ -191,7 +191,7 @@ for await (const result of streamAI(stream, schema, { emitPartial: false })) {
 `createParser` binds a schema and options together for repeated use:
 
 ```typescript
-import { createParser } from 'llm-parser'
+import { createParser } from 'schema-llm'
 
 const sentimentParser = createParser(
   z.object({
@@ -217,7 +217,7 @@ for await (const partial of sentimentParser.stream(streamResponse)) {
 All errors are `ParseError` instances with a typed `code` field.
 
 ```typescript
-import { parseAI, ParseError } from 'llm-parser'
+import { parseAI, ParseError } from 'schema-llm'
 
 try {
   const result = await parseAI(response, schema)
