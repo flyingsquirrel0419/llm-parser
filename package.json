@@ -35,7 +35,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "templates"
   ],
   "sideEffects": false,
   "publishConfig": {
@@ -48,8 +49,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:zod3": "npm install --no-save zod@^3.25.0 && npm run typecheck && npm test && npm run build",
-    "lint": "biome check src tests package.json tsconfig.json tsup.config.ts vitest.config.ts biome.json README.md",
-    "format": "biome format --write src tests package.json tsconfig.json tsup.config.ts vitest.config.ts biome.json README.md",
+    "lint": "biome check src tests templates package.json tsconfig.json tsup.config.ts vitest.config.ts biome.json README.md",
+    "format": "biome format --write src tests templates package.json tsconfig.json tsup.config.ts vitest.config.ts biome.json README.md",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
   },

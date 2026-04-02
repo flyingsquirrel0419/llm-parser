@@ -62,6 +62,20 @@ Requires `zod >= 3.25.0` (v4 also supported).
 
 ---
 
+## Starter templates
+
+Ready-to-copy templates live in [`templates/`](./templates) and are also included in the published npm package.
+
+- [`templates/parseAI/openai.ts`](./templates/parseAI/openai.ts) — OpenAI `responses.create()` starter
+- [`templates/parseAI/google.ts`](./templates/parseAI/google.ts) — Google Gen AI `@google/genai` starter
+- [`templates/parseAI/anthropic.ts`](./templates/parseAI/anthropic.ts) — Anthropic Messages API starter
+- [`templates/parseAI/ollama.ts`](./templates/parseAI/ollama.ts) — Ollama local model starter
+- [`templates/zod/basic-schema.ts`](./templates/zod/basic-schema.ts) — reusable Zod response schema template
+
+If you install from npm, you can inspect them locally in `node_modules/schema-llm/templates`.
+
+---
+
 ## Usage
 
 ### With OpenAI
